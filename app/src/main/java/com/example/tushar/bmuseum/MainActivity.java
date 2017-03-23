@@ -1,8 +1,15 @@
 package com.example.tushar.bmuseum;
 
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -15,6 +22,10 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private static String[] mPermissions = { Manifest.permission.ACCESS_FINE_LOCATION};
+    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int PERMISSIONS_REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +43,17 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        if (!havePermissions()) {
+            Log.i(TAG, "Requesting permissions needed for this app.");
+            requestPermissions();
+        }
+
+        if(!isBlueEnable()){
+            Intent bluetoothIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivity(bluetoothIntent);
+        }
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -41,6 +63,30 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
     }
+
+    private boolean isBlueEnable() {
+        BluetoothManager bluetoothManager = (BluetoothManager) getSystemService(BLUETOOTH_SERVICE);
+        BluetoothAdapter bluetoothAdapter = bluetoothManager.getAdapter();
+        return bluetoothAdapter.isEnabled();
+
+    }
+
+    private boolean havePermissions() {
+        for(String permission:mPermissions){
+            if(ActivityCompat.checkSelfPermission(this,permission)!= PackageManager.PERMISSION_GRANTED){
+                return  false;
+            }
+        }
+        return true;
+    }
+
+    private void requestPermissions() {
+        ActivityCompat.requestPermissions(this,
+                mPermissions, PERMISSIONS_REQUEST_CODE);
+    }
+
+
+
 
     @Override
     public void onBackPressed() {
