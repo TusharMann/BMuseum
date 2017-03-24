@@ -10,7 +10,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.use(bodyparser.json());
 
 //Routes
-app.use('/api4app',require('./api4app1'));
+app.use('/api4app',require('./app4api1'));
 
 //Start server 
 app.listen(1337,"0.0.0.0",function() {

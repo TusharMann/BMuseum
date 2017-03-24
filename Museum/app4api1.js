@@ -5,7 +5,7 @@ var router  =express.Router();
 var Monalisa=require('./monalisa1');
 Monalisa.methods(['get','put','post','delete']);
 
-Monalisa.register(router,'/Monalisa');
+Monalisa.register(router,'/monalisa');
 
 
 
@@ -21,10 +21,10 @@ Kohinoor.methods(['get','put','post','delete']);
 Kohinoor.register(router,'/Kohinoor');
 
 
-var Thethinker=require('./Thethinker');
+var Thethinker=require('./thinker');
 Thethinker.methods(['get','put','post','delete']);
 
-Monalisa.register(router,'/Thethinker');
+Monalisa.register(router,'/thinker');
 
 
 

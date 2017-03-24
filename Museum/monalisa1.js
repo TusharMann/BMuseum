@@ -9,4 +9,4 @@ var MonalisaSchema = new mongoose.Schema({
 		context: String
 	}]
 });
-module.exports = restful.model('Monalisa',MonalisaSchema); 
+module.exports = restful.model('Monalisan',MonalisaSchema); 

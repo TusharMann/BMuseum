@@ -9,4 +9,4 @@ var KohinoorSchema = new mongoose.Schema({
 		context: String
 	}]
 });
-module.exports = restful.model('Kohinoor',KohinoorSchema); 
+module.exports = restful.model('Kohinoorm',KohinoorSchema); 
