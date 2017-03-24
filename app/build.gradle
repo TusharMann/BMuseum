@@ -22,4 +22,10 @@ dependencies {
     compile 'com.android.support:support-v4:+'
     //compile project(':android-beacon-library')
     compile 'org.altbeacon:android-beacon-library:2+'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:cardview-v7:23.3.0'
+
+
 }
