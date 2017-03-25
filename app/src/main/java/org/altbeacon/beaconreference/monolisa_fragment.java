@@ -82,7 +82,7 @@ public class monolisa_fragment extends Fragment  {
 
                             SharedPreferences prefs = getActivity().getSharedPreferences("select", MODE_PRIVATE);
                             String lang=prefs.getString("language",null);
-                            Log.e("datass",lang);
+                            Log.e("text",lang);
 
 
                             JSONObject ob = response.getJSONObject(0);
@@ -91,9 +91,8 @@ public class monolisa_fragment extends Fragment  {
                             for(int i=0;i<jsonArray.length();i++) {
                                 JSONObject result = jsonArray.getJSONObject(i);
                                 String language = result.getString("language");
-
-                                Log.e("data1", language);
-
+                                if (language.equals(lang)) {
+                                    Log.e("data1", language);
 
 
                                     String key = result.getString("key");
@@ -113,6 +112,7 @@ public class monolisa_fragment extends Fragment  {
 
                                     // Toast.makeText(getActivity(),context,Toast.LENGTH_LONG).show();
                                 }
+                            }
 
 
                         } catch (JSONException e) {
