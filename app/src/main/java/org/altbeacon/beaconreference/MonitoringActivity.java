@@ -69,6 +69,9 @@ public class MonitoringActivity extends Activity  {
                 builder.show();
             }
         }
+
+
+
 	}
 
 

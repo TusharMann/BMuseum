@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.util.Log;
@@ -131,7 +133,7 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                   else if(x.equals("00112233-4455-6677-8899-AABBCCDDEEAA") && k3!=1){
                       allanhills fragment =new allanhills();
                       getFragmentManager().beginTransaction().replace(R.id.framelayout,fragment).commit();
-                      k1=0;k2=0;k3=0;k4=1;
+                      k1=0;k2=0;k3=1;k4=0;
                   }
 
               }
@@ -225,11 +227,32 @@ public class RangingActivity extends Activity implements BeaconConsumer {
         builder.setTitle("Select Language")
 // Specify the list array, the items to be selected by default (null for none),
 // and the listener through which to receive callbacks when items are selected
-                .setSingleChoiceItems(arr, 1, new DialogInterface.OnClickListener() {
+                .setSingleChoiceItems(arr, 0, new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 // TODO Auto-generated method stub
+
+                        String selection=" ";
+                        switch (which){
+                            case 0:
+                                selection=(String)arr[which];
+                                break;
+                            case 1:selection=(String)arr[which];
+                                break;
+                            case 2:
+                                selection=(String)arr[which];
+                                break;
+
+                            case 3:
+                                selection=(String)arr[which];
+                                break;
+                            default:break;
+                        }
+                        Log.e("text",selection);
+                        SharedPreferences.Editor editor = getSharedPreferences("select", MODE_PRIVATE).edit();
+                    editor.putString("language", selection);
+                    editor.commit();
 
                     }
                 })
@@ -240,25 +263,14 @@ public class RangingActivity extends Activity implements BeaconConsumer {
                     public void onClick(DialogInterface dialog, int id) {
 // User clicked OK, so save the result somewhere
 // or return them to the component that opened the dialog
-                        String selection=" ";
-                        switch (id){
-                            case 0:
-                                selection=(String)arr[id];
-                                break;
-                            case 1:selection=(String)arr[id];
-                                break;
-                            case 2:
-                            selection=(String)arr[id];
-                            break;
+                        Intent intent=new Intent(getApplication(),RangingActivity.class);
+                        startActivity(intent);
 
-                            case 3:
-                                selection=(String)arr[id];
-                                break;
-                            default:break;
+
                         }
-                        Log.i("text",selection);
+
                       //  Toast.makeText(this,selection,Toast.LENGTH_LONG).show();
-                    }
+
                 })
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override

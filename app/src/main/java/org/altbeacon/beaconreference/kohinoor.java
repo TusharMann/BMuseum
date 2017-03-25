@@ -134,33 +134,6 @@ public class kohinoor extends Fragment {
             }
         });
 
-
-
-//        Call<JsonObject> jsonObject = ApiClient.getInterface().getmonalisa();
-//        Log.i("Data ",jsonObject.toString());
-//
-//        jsonObject.enqueue(new Callback<JsonObject>() {
-//            @Override
-//            public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-//                JsonObject jsonObject1 = response.body();
-//
-//                for (int i = 0; i < jsonObject1.getArrayList().size(); i++)
-//                 //   movieList.add(jsonObject1.getMovieList().get(i));
-//
-//                Log.i("Data coming ", String.valueOf(jsonObject1.getArrayList().size()));
-//
-//               // adapter.notifyDataSetChanged();
-//               // progressDialog.hide();
-//            }
-//
-//            @Override
-//            public void onFailure(Call<JsonObject> call, Throwable t) {
-//                Toast.makeText(getActivity(), "Check your internet connection", Toast.LENGTH_LONG).show();
-//
-//            }
-//        });
-
-
         return view;
     }
 }
