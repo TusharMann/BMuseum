@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+    <item
+        android:id="@+id/language"
+        android:orderInCategory="100"
+        android:title="Choose Language" />
+
+    <item
+        android:id="@+id/pay"
+        android:orderInCategory="100"
+        android:title="Buy Tickets" />
+
+    <item
+        android:id="@+id/map"
+        android:orderInCategory="100"
+        android:title="Map"/>
+
+
+</menu>
