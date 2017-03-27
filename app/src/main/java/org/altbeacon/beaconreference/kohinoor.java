@@ -108,7 +108,7 @@ public class kohinoor extends Fragment {
 
                                 // Toast.makeText(getActivity(),context,Toast.LENGTH_LONG).show();
                             }}
-                            
+
 
                         } catch (JSONException e) {
                             e.printStackTrace();
