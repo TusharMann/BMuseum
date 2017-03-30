@@ -265,6 +265,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
 // or return them to the component that opened the dialog
                         Intent intent=new Intent(getApplication(),RangingActivity.class);
                         startActivity(intent);
+                        finish();
 
 
                         }
