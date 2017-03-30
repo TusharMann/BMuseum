@@ -2,7 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MonitoringActivity" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MonitoringActivity">
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"

@@ -2,7 +2,6 @@ package org.altbeacon.beaconreference;
 
 import android.Manifest;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
@@ -12,6 +11,8 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -23,7 +24,7 @@ import org.altbeacon.beacon.BeaconManager;
  * @author dyoung
  * @author Matt Tyler
  */
-public class MonitoringActivity extends Activity  {
+public class MonitoringActivity extends AppCompatActivity {
 	protected static final String TAG = "MonitoringActivity";
 	private static final int PERMISSION_REQUEST_COARSE_LOCATION = 1;
 	private static final int PERMISSIONS_REQUEST_CODE = 100;
