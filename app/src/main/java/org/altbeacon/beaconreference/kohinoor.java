@@ -19,7 +19,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -102,10 +101,6 @@ public class kohinoor extends Fragment {
                                     content.setText(context);
                                     // content=context;
                                     //textView.setText(context);
-                                    Picasso.with(getActivity())
-                                            .load(image)
-                                            .into(imageView);
-                                    break;
 
 
                                 // Toast.makeText(getActivity(),context,Toast.LENGTH_LONG).show();

@@ -2,8 +2,10 @@ package org.altbeacon.beaconreference;
 
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +23,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class allanhills extends Fragment {
@@ -77,21 +81,30 @@ public class allanhills extends Fragment {
                     public void onResponse(JSONArray response) {
                         try {
                             // textView.setText("Entered");
+                            SharedPreferences prefs = getActivity().getSharedPreferences("select", MODE_PRIVATE);
+                            String lang=prefs.getString("language",null);
+                            Log.e("text",lang);
+
 
                             JSONObject ob = response.getJSONObject(0);
 
                             JSONArray jsonArray = ob.getJSONArray("result");
-                            for(int i=0;i<jsonArray.length()-1;i++){
-                                JSONObject result =jsonArray.getJSONObject(i);
-                                String language=result.getString("language");
-                                String key=result.getString("key");
-                                key1=key;
-                                String image=result.getString("image");
-                                String context=result.getString("context");
-                                content.setText(context);
-                                //textView.setText(context);
+                            for(int i=0;i<jsonArray.length();i++) {
+                                JSONObject result = jsonArray.getJSONObject(i);
+                                String language = result.getString("language");
 
-                                // Toast.makeText(getActivity(),context,Toast.LENGTH_LONG).show();
+                                if (language.equals(lang)) {
+                                    Log.e("data1", language);
+
+                                    String key = result.getString("key");
+                                    key1 = key;
+                                    String image = result.getString("image");
+                                    String context = result.getString("context");
+                                    content.setText(context);
+                                    //textView.setText(context);
+
+                                    // Toast.makeText(getActivity(),context,Toast.LENGTH_LONG).show();
+                                }
                             }
 
                         } catch (JSONException e) {
