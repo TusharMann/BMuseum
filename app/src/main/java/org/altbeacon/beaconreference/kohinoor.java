@@ -87,6 +87,8 @@ public class kohinoor extends Fragment {
                             JSONObject ob = response.getJSONObject(0);
 
                             JSONArray jsonArray = ob.getJSONArray("result");
+                            Log.e("Length","Success");
+
                             for(int i=0;i<jsonArray.length();i++){
                                 JSONObject result =jsonArray.getJSONObject(i);
                                 String language=result.getString("language");
@@ -118,6 +120,7 @@ public class kohinoor extends Fragment {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //textView.setText("error");
+                Log.e("Length","Error");
             }
         });
 

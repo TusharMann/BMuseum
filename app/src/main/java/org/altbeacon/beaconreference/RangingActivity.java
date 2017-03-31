@@ -130,7 +130,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
 
                   }
 
-                  else if(x.equals("00112233-4455-6677-8899-AABBCCDDEEAA") && k3!=1){
+                  else if(x.equals("00112233-4455-6677-8899-aabbccddeeaa") && k3!=1){
                       allanhills fragment =new allanhills();
                       getFragmentManager().beginTransaction().replace(R.id.framelayout,fragment).commit();
                       k1=0;k2=0;k3=1;k4=0;
