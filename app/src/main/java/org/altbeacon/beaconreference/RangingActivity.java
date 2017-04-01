@@ -33,6 +33,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
     public static boolean flag=true;
 
 
+
     //Webview
     String url="http://120.63.229.222/npticketing/";
     //Webview view = ()
@@ -42,32 +43,6 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranging);
         frameLayout=(FrameLayout)findViewById(R.id.framelayout);
-       // spinner=(Spinner)findViewById(R.id.spinner1);
-      //  String[] day={"English","French","German","Hindi"};
-       // ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,day);
-      //  spinner.setAdapter(adapter);
-
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                TextView ab=(TextView) view;
-//                Toast.makeText(getApplicationContext(),ab.getText(),Toast.LENGTH_LONG).show();
-//
-//                SharedPreferences.Editor editor = getSharedPreferences("select", MODE_PRIVATE).edit();
-//                editor.putString("language", (String)ab.getText());
-//                editor.commit();
-//
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-
-       // MediaPlayer mono= MediaPlayer.create(this, R.r)
-
-
 
         beaconManager.bind(this);
     }
@@ -103,25 +78,21 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
                  Beacon firstBeacon = beacons.iterator().next();
                   Log.e(TAG,firstBeacon.toString());
                   String x =firstBeacon.getId1().toString();
+                  Double d=firstBeacon.getDistance();
                  // x=x.substring(24);
                  Log.e("Ranging","The first beacon " + firstBeacon.getId1().toString() + " is about " + firstBeacon.getDistance() + " meters away.");
 
-                  if(x.equals("00112233-4455-6677-8899-aabbccddeeff") && k1!=1)
+                  if(x.equals("00112233-4455-6677-8899-aabbccddeeff") && k1!=1 && d< 5.0)
                   {
                       x = current;
                           monolisa_fragment fragment = new monolisa_fragment();
                           getFragmentManager().beginTransaction().replace(R.id.framelayout, fragment).commit();
-//                      Intent intent=new Intent();
-//                      intent.setClass(getApplicationContext(),MainActivity.class);
-//                      startActivity(intent);
 
                       k2=0;k3=0;k4=0;k1=1;
 
-                         // RunningAverageRssiFilter.setSampleExpirationMilliseconds(1000000000);
-
                   }
 
-                  else if(x.equals("00112233-4455-6677-8899-aabbccddeeee") && k2!=1)
+                  else if(x.equals("00112233-4455-6677-8899-aabbccddeeee") && k2!=1 && d< 5.0)
                   {
                       Log.e("Sure",x.toString());
                       kohinoor fragment=new kohinoor();
@@ -130,7 +101,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
 
                   }
 
-                  else if(x.equals("00112233-4455-6677-8899-aabbccddeeaa") && k3!=1){
+                  else if(x.equals("00112233-4455-6677-8899-aabbccddeeaa") && k3!=1 && d< 5.0){
                       allanhills fragment =new allanhills();
                       getFragmentManager().beginTransaction().replace(R.id.framelayout,fragment).commit();
                       k1=0;k2=0;k3=1;k4=0;
@@ -173,29 +144,6 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
         if (id == R.id.language) {
             Dialog dialog = onCreateDialogSingleChoice();
             dialog.show();
-
-//            radio=(RadioGroup)findViewById(R.id.radio);
-//
-//           // Button button=(Button)findViewById(R.id.okbutton);
-//
-//            Dialog dialog = new Dialog(this);
-//            dialog.setContentView(R.layout.language_dialog);
-//            dialog.setTitle("Choose Language");
-//            dialog.setCancelable(true);
-//            dialog.show();
-//
-//            int selectedId = radio.getCheckedRadioButtonId();
-//            RadioButton radioButton = (RadioButton) findViewById(selectedId);
-//            Log.i("text", (String) radioButton.getText());
-
-            // there are a lot of settings, for dialog, check them all out!
-            // set up radiobutton
-//            RadioButton rd1 = (RadioButton) dialog.findViewById(R.id.rd_);
-//            RadioButton rd2 = (RadioButton) dialog.findViewById(R.id.rd_2);
-
-            // now that the dialog is set up, it's time to show it
-
-
 
         }
 
@@ -282,5 +230,4 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
 
         return builder.create();
     }
-
 }
