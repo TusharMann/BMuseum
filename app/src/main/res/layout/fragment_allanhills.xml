@@ -12,6 +12,11 @@
         android:orientation="vertical"
         tools:context="org.altbeacon.beaconreference.monolisa_fragment">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200sp"
+            android:orientation="horizontal">
+
         <!-- TODO: Update blank fragment layout -->
         <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
@@ -34,6 +39,44 @@
             android:src="@drawable/alanhills"/>
         </android.support.v7.widget.CardView>
 
+            <TextView
+                android:layout_width="10sp"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:layout_width="125sp"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:id="@+id/found"
+                    android:textAlignment="center"
+                    android:layout_marginTop="15sp"
+                    android:text="Found Date :\n 1984"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:id="@+id/country"
+                    android:text="Country :\n Antartica"
+                    android:textAlignment="center"/>
+
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="10sp" />
@@ -44,17 +87,18 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5"
+                android:layout_width="40sp"
+                android:layout_height="40sp"
                 android:src="@drawable/play_button"/>
 
             <Button
-                android:layout_width="0dp"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
                 android:text="Play videos"
-                android:id="@+id/button" />
+                android:id="@+id/button"
+                android:background="@color/blue"
+                android:textColor="@color/white"
+                android:layout_marginLeft="10sp"/>
 
         </LinearLayout>
         
